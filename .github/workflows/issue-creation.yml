@@ -2,10 +2,22 @@
 name: Create Issue on Close
 
 on:
+    fork:
     issues:
         types: [closed]
 
 jobs:
+    create-issue-level-1:
+        if: ${{ github.event_name == 'fork' }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create first Issue
+              uses: peter-evans/create-issue-from-file@v4
+              with:
+                title: 'Program 1: Sort the string According to the frequency of character'
+                content-filepath: './.github/ISSUE_TEMPLATE/program-1.md'
+                labels: 'level-1'
+
     create-issue-level-2:        
         if: ${{ github.event.issue.labels[0].name }} == 'level-1'
         runs-on: ubuntu-latest
@@ -13,6 +25,28 @@ jobs:
             - name: Create Issue From File
               uses: peter-evans/create-issue-from-file@v4
               with:
-                title: 'Program 2:'
+                title: 'Program 2: Maximum Stock Profit'
                 content-filepath: './.github/ISSUE_TEMPLATE/program-2.md'
                 labels: 'level-2'
+
+    create-issue-level-3:        
+        if: ${{ github.event.issue.labels[0].name }} == 'level-2'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create Issue From File
+              uses: peter-evans/create-issue-from-file@v4
+              with:
+                title: 'Program 3: Validate IP Address'
+                content-filepath: './.github/ISSUE_TEMPLATE/program-3.md'
+                labels: 'level-3'
+    
+    create-issue-level-4:        
+        if: ${{ github.event.issue.labels[0].name }} == 'level-3'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create Issue From File
+              uses: peter-evans/create-issue-from-file@v4
+              with:
+                title: 'Program 4:'
+                content-filepath: './.github/ISSUE_TEMPLATE/program-4.md'
+                labels: 'level-4'
