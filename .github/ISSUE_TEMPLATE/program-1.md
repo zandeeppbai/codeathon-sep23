@@ -1,4 +1,4 @@
-You are given a string and your task is to sort the string according to the frequency of character and return the final string.
+Write a program to sort a string according to the frequency of character and return the final string.
 
 ### samples
 Input | output
