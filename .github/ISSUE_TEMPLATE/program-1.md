@@ -5,8 +5,9 @@ Input | output
  ------|-------
 hello world | llloohe wrd
 tree | eetr
-```[tasklist]
+
+
 ### Tasks
-- [ ] Develop the sort algorithm using your choice of programming language
-- [ ] Create test script covering all scenarios (min 5 test cases)
-```
+- Develop the sort algorithm using your choice of programming language
+- Create test script covering all scenarios (min 5 test cases)
+
