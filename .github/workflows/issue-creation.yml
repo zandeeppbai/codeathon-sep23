@@ -10,9 +10,6 @@ jobs:
         if: ${{ github.event.issue.labels[0].name }} == 'level-1'
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
-              
             - name: Create Issue From File
               uses: peter-evans/create-issue-from-file@v4
               with:
