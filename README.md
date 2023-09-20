@@ -4,6 +4,11 @@
 Please follow below instructions
   1. Login to GitHub.com
   2. Fork this repository
+
+  > Note: If Issues and Actions tab not enabled, follow the steps to enable them first
+   a. Click on Settings > General and enable Issues under Features section
+   b. Click on Actions tab and enable it
+
   3. Refer [Issue 1](https://github.com/ambilykk/airindia-codeathon-sep23/issues/1) for the first programming question
   4. Add solution to corresponding folder. f the folder doesn't agree, create one like [program-1](./program-1), program-2
   5. Upload the solution screen shots to [Result folder](./result) - running app window with input, outputs
