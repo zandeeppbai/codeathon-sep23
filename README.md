@@ -1,4 +1,4 @@
-# Air India - Codeathon on 21st Sep 2023
+# Codeathon on 21st Sep 2023
 
 ## Instructions
 Please follow below instructions
