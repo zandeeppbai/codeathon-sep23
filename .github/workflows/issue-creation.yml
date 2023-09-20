@@ -2,15 +2,19 @@
 name: Create Issue on Close
 
 on:
+    workflow_dispatch:
     fork:
     issues:
         types: [closed]
 
 jobs:
     create-issue-level-1:
-        if: ${{ github.event_name == 'fork' }}
+        if: ${{ github.event_name == 'fork' || github.event_name == 'workflow_dispatch' }}
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+              
             - name: Create first Issue
               uses: peter-evans/create-issue-from-file@v4
               with:
@@ -19,9 +23,12 @@ jobs:
                 labels: 'level-1'
 
     create-issue-level-2:        
-        if: ${{ github.event.issue.labels[0].name }} == 'level-1'
+        if: ${{ github.event_name == 'issues' && github.event.issue.labels[0].name == 'level-1' }}
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+              
             - name: Create Issue From File
               uses: peter-evans/create-issue-from-file@v4
               with:
@@ -30,9 +37,12 @@ jobs:
                 labels: 'level-2'
 
     create-issue-level-3:        
-        if: ${{ github.event.issue.labels[0].name }} == 'level-2'
+        if: ${{ github.event_name == 'issues' && github.event.issue.labels[0].name == 'level-2'}}
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+              
             - name: Create Issue From File
               uses: peter-evans/create-issue-from-file@v4
               with:
@@ -41,12 +51,15 @@ jobs:
                 labels: 'level-3'
     
     create-issue-level-4:        
-        if: ${{ github.event.issue.labels[0].name }} == 'level-3'
+        if: ${{ github.event_name == 'issues' &&  github.event.issue.labels[0].name == 'level-3' }}
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+              
             - name: Create Issue From File
               uses: peter-evans/create-issue-from-file@v4
               with:
-                title: 'Program 4:'
+                title: 'Program 4: Sort a linear Array'
                 content-filepath: './template/program-4.md'
                 labels: 'level-4'
