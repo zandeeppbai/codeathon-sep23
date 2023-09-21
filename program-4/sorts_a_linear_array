@@ -1,0 +1,32 @@
+def counting_sort(array):
+  """
+  Sorts a linear array using counting sort.
+
+  Args:
+    array: A list of elements to be sorted.
+
+  Returns:
+    A sorted list.
+  """
+
+  # Create a count array.
+  count_array = [0] * len(array)
+  for element in array:
+    count_array[element] += 1
+
+  # Sort the count array.
+  count_array.sort()
+
+  # Place the elements of the input array in the output array in sorted order.
+  output_array = []
+  for element, count in enumerate(count_array):
+    output_array += [element] * count
+
+  return output_array
+
+
+# Example usage:
+
+array = [10, 5, 3, 2, 1, 4, 6, 7, 8, 9]
+sorted_array = counting_sort(array)
+print(sorted_array)
