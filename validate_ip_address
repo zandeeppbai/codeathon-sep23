@@ -1,0 +1,28 @@
+import ipaddress
+
+
+def validate_ip(ip_address):
+  """
+  Validates an IP address.
+
+  Args:
+    ip_address: A string representing the IP address to validate.
+
+  Returns:
+    True if the IP address is valid, False otherwise.
+  """
+
+  try:
+    ipaddress.ip_address(ip_address)
+    return True
+  except ValueError:
+    return False
+
+
+# Example usage:
+
+ip_address = "555.555.555.555"
+if validate_ip(ip_address):
+  print("true")
+else:
+  print("false")
